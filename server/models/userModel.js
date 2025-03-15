@@ -40,6 +40,6 @@ userSchema.statics.login = async (email, password)=>{
     return user
 }
 
-const User = new mongoose.model("User", userSchema);
+const User = new mongoose.model("user", userSchema);
 
 module.exports = User;
