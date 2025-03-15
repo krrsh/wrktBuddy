@@ -12,12 +12,16 @@ export const useSignup = () => {
       return;
     }
     // else
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
+    const response = await fetch(`https://wrktbuddy.onrender.com/api/users/signup`, {
+    // const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
+
+    // const text = await response.text();
+    // const data = text ? JSON.parse(text) : {};
 
     if (!response.ok) {
       setError(data.Error);

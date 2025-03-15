@@ -19,7 +19,8 @@ const Form = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/api/workouts`,
+      `https://wrktbuddy.onrender.com/api/workouts`,
+      // `${process.env.REACT_APP_BACKEND_URL}/api/workouts`,
       input , {headers:{
         "Authorization" : `Bearer ${user.token}`
       }}
@@ -40,7 +41,8 @@ const Form = () => {
   //edit record
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/api/workouts/${input._id}`, input, {headers:{
+    await axios.patch(`https://wrktbuddy.onrender.com/api/workouts/${input._id}`, input, {headers:{
+    // await axios.patch(`${process.env.REACT_APP_BACKEND_URL}/api/workouts/${input._id}`, input, {headers:{
       "Authorization" : `Bearer ${user.token}`
     }});
     getWorkouts();

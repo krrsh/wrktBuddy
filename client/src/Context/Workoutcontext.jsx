@@ -14,7 +14,8 @@ const Workoutcontext = ({children}) => {
 
   const getWorkouts = () => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/api/workouts`, {headers:{
+      .get(`https://wrktbuddy.onrender.com/api/workouts`, {headers:{
+      // .get(`${process.env.REACT_APP_BACKEND_URL}/api/workouts`, {headers:{
         "Authorization" : `Bearer ${user.token}`
       }})
       .then((response) => {
