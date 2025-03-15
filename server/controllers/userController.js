@@ -6,7 +6,7 @@ const createToken = require("../utils/token");
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const loginData = await User.login(email, password);
+    const loginData = await User.login(email, password, User);
 
     //create token
     const token = createToken(loginData._id);
@@ -22,7 +22,7 @@ const login = async (req, res) => {
 const signup = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const userData = await User.signup(email, password);
+    const userData = await User.signup(email, password, User);
 
     //create token
     const token = createToken(userData._id);
