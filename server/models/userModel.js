@@ -15,21 +15,21 @@ const userSchema = mongoose.Schema({
 
 //static function for signup
 userSchema.statics.signup = async (email, password) => {
-  const exists = await User.findOne({ email });
+  const exists = await this.findOne({ email });
   if (exists) {
     throw Error("Email already exists!");
   }
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await User.create({ email, password: hash });
+  const user = await this.create({ email, password: hash });
 
   return user;
 };
 
 //static function for login
 userSchema.statics.login = async (email, password)=>{
-    const user = await User.findOne({email});
+    const user = await this.findOne({email});
     if(!user){
         throw Error("Incorrect email!")
     }
@@ -40,6 +40,6 @@ userSchema.statics.login = async (email, password)=>{
     return user
 }
 
-const User = new mongoose.model("user", userSchema);
+const User = new mongoose.model("User", userSchema);
 
 module.exports = User;
