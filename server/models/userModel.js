@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
 });
 
 //static function for signup
-userSchema.statics.signup = async (email, password, User) => {
+userSchema.statics.signup = async (email, password) => {
   const exists = await User.findOne({ email });
   if (exists) {
     throw Error("Email already exists!");
@@ -28,7 +28,7 @@ userSchema.statics.signup = async (email, password, User) => {
 };
 
 //static function for login
-userSchema.statics.login = async (email, password, User)=>{
+userSchema.statics.login = async (email, password)=>{
     const user = await User.findOne({email});
     if(!user){
         throw Error("Incorrect email!")

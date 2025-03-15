@@ -1,8 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+require("dotenv").config();  // Load environment variables
 
-mongoose.connect('mongodb+srv://krshna:pass123@cluster0.ath0r.mongodb.net/wrktbuddy?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
-    console.log("Connection established")
-}).catch((err)=>{
-    console.log("Not connected to DB, Error : ", err)
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
+.then(() => console.log("✅ MongoDB Connected Successfully!"))
+.catch((err) => console.log("❌ MongoDB Connection Error:", err));
 
+
+
+
+
+
+
+
+
+
+// const mongoose = require('mongoose');
+
+// mongoose.connect('').then(()=>{
+//     console.log("Connection established")
+// }).catch((err)=>{
+//     console.log("Not connected to DB, Error : ", err)
+// })
