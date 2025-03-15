@@ -14,7 +14,7 @@ const Workoutcontext = ({children}) => {
 
   const getWorkouts = () => {
     axios
-      .get("http://localhost:3000/api/workouts", {headers:{
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/workouts`, {headers:{
         "Authorization" : `Bearer ${user.token}`
       }})
       .then((response) => {

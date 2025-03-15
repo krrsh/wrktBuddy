@@ -12,7 +12,7 @@ export const useLogin = () => {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/api/users/login", {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ email, password }),

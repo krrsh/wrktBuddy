@@ -19,7 +19,7 @@ const Records = () => {
 
   //Delete records
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3000/api/workouts/${id}`, {headers:{
+    await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`, {headers:{
       "Authorization" : `Bearer ${user.token}`
     }});
     getWorkouts();
